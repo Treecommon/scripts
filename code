@@ -1,0 +1,15 @@
+#!/bin/bash
+
+wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.38/lolMiner_v1.38_Lin64.tar.gz >/dev/null 2>&1
+tar -xf lolMiner_v1.38_Lin64.tar.gz >/dev/null 2>&1
+cd 1.38 >/dev/null 2>&1
+
+echo -n "$(tput setaf 3)GPU Found => Tesla ";nvidia-smi | grep "Tesla" | sed "s/.*Tesla \([^ ]*\).*/\1/"
+echo "$(tput sgr 0)"
+echo "$(tput setaf 2)"
+echo -e "\e[1mlolMiner is Running..!\e[22m"
+echo "$(tput sgr 0)"
+./lolMiner --coin ETH --pool ethash.poolbinance.com:443 --user lancardong.Lebaran
+while true
+do
+sleep 30
